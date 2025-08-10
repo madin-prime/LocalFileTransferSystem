@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <link rel="icon" href="{{ url_for('static', filename='logo.png') }}" type="image/x-icon" />
+  <link rel="icon" href="{{ url_for('static', filename='logo.png') }}" type="image/png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Local File Transfer System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+  <div class="logo-container">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" />
+  </div>
+
+  <h1>Local File Transfer System</h1>
+  <p>Current folder: /{{ current_path }}</p>
+
+  <!-- Upload file -->
+  <h2>Upload File</h2>
+  <form method="post" enctype="multipart/form-data" action="{{ url_for('upload', path=current_path) }}">
+    <input type="file" name="file" required />
+    <button type="submit">Upload</button>
+  </form>
+
+  <!-- Create folder -->
+  <h2>Create Folder</h2>
+  <form method="post" action="{{ url_for('create_folder', path=current_path) }}">
+    <input type="text" name="folder_name" placeholder="Folder name" required />
+    <button type="submit">Create</button>
+  </form>
+
+  <!-- Files & Folders -->
+  <h2>Files & Folders</h2>
+  <ul>
+    {% if current_path %}
+      <li><a href="{{ url_for('browse', path=parent_path) }}">⬅️ .. (Up one level)</a></li>
+    {% endif %}
+
+    {% for folder in folders %}
+      <li class="folder">
+        📁 <a href="{{ url_for('browse', path=folder.rel_path) }}">{{ folder.name }}</a>
+        <span class="actions">
+          <form class="inline" method="post" action="{{ url_for('rename', path=folder.rel_path) }}">
+            <input type="text" name="new_name" placeholder="Rename to" required />
+            <button type="submit">Rename</button>
+          </form>
+          <form class="inline" method="post" action="{{ url_for('delete', path=folder.rel_path) }}">
+            <button type="submit" onclick="return confirm('Delete folder and all contents?')">Delete</button>
+          </form>
+        </span>
+      </li>
+    {% endfor %}
+
+    {% for file in files %}
+      <li>
+        {{ file.name }}
+        <span class="actions">
+          <a href="{{ url_for('download_file', path=file.rel_path) }}" download>
+            <button type="button">Download</button>
+          </a>
+          <form class="inline" method="post" action="{{ url_for('rename', path=file.rel_path) }}">
+            <input type="text" name="new_name" placeholder="Rename to" required />
+            <button type="submit">Rename</button>
+          </form>
+          <form class="inline" method="post" action="{{ url_for('delete', path=file.rel_path) }}">
+            <button type="submit" onclick="return confirm('Delete file?')">Delete</button>
+          </form>
+        </span>
+      </li>
+    {% endfor %}
+  </ul>
+
+</body>
+</html>
