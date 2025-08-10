@@ -1,0 +1,258 @@
+/* Reset and base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 10px auto;
+  max-width: 900px;
+  padding: 0 15px 50px;
+  background: #f7f9fc;
+  color: #333;
+  line-height: 1.5;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 0.5em;
+  color: #2c3e50;
+  font-weight: 700;
+}
+
+h2 {
+  margin-top: 2em;
+  color: #34495e;
+  font-weight: 600;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 6px;
+}
+
+p {
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
+  margin-top: 0;
+}
+
+/* Forms */
+
+form {
+  margin-top: 0.5em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+form input[type="file"],
+form input[type="text"] {
+  flex: 1 1 auto;
+  padding: 8px 12px;
+  font-size: 1rem;
+  border: 1.5px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+}
+
+form input[type="file"]:focus,
+form input[type="text"]:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+form button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 9px 18px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+form button:hover,
+form button:focus {
+  background-color: #2980b9;
+  outline: none;
+}
+
+/* List styles */
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1em;
+}
+
+li {
+  background: white;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 0.05);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+li a {
+  color: #34495e;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  flex-grow: 1;
+  min-width: 0;
+  word-break: break-word;
+}
+
+li a:hover,
+li a:focus {
+  color: #3498db;
+  text-decoration: underline;
+  outline: none;
+}
+
+.folder a::before {
+  content: "📁 ";
+}
+
+li:not(.folder) a::before {
+  content: "📄 ";
+}
+
+/* Actions inside list items */
+
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-left: 15px;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+form.inline {
+  display: flex;
+  gap: 6px;
+  margin: 0;
+  align-items: center;
+}
+
+form.inline input[type="text"] {
+  width: 120px;
+  font-size: 0.95rem;
+  padding: 5px 8px;
+  border: 1.5px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+form.inline input[type="text"]:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+form.inline button {
+  padding: 6px 12px;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background-color: #e74c3c;
+  color: white;
+}
+
+form.inline button:hover,
+form.inline button:focus {
+  background-color: #c0392b;
+  outline: none;
+}
+
+/* Download button */
+
+.actions a button {
+  background-color: #27ae60; /* green */
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: background-color 0.25s ease;
+  min-width: 90px;
+}
+
+.actions a button:hover,
+.actions a button:focus {
+  background-color: #1e8449;
+  outline: none;
+}
+
+.actions a button:active {
+  background-color: #196836;
+}
+
+/* Up folder link */
+
+ul li:first-child a {
+  font-weight: 700;
+  color: #7f8c8d;
+  font-size: 1rem;
+}
+
+ul li:first-child a:hover,
+ul li:first-child a:focus {
+  color: #3498db;
+  outline: none;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+  body {
+    margin: 5px 10px 40px;
+    padding: 0 10px;
+  }
+
+  form,
+  .actions {
+    flex-direction: column;
+  }
+
+  form input[type="file"],
+  form input[type="text"],
+  form button,
+  form.inline input[type="text"],
+  form.inline button,
+  .actions a button {
+    width: 100%;
+  }
+
+  li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  li a {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+
+  .actions {
+    width: 100%;
+  }
+  
+}
+.logo-container img {
+  text-align: center;
+  max-width: 160px;
+  height: auto;
+  user-select: none;
+  display: block;
+  margin: 0 auto;
+}
