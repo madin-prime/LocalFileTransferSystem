@@ -12,7 +12,7 @@ A simple **local network file sharing and management system** built with Flask. 
 - Create, rename, and delete files and folders  
 - Responsive and mobile-friendly design  
 - Secure path handling to prevent directory traversal  
-- Customizable max upload size (default 100MB)  
+- Customizable max upload size (default 2000MB)  
 - Minimal terminal output for clean startup  
 - Custom terminal banner (with fallback for executable builds)  
 
