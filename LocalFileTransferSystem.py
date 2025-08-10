@@ -22,8 +22,8 @@ app = Flask(__name__)
 BASE_DIR = os.path.abspath("shared_files")
 os.makedirs(BASE_DIR, exist_ok=True)
 
-# Optional: Increase max upload size to 100 MB
-app.config['MAX_CONTENT_LENGTH'] = 100 * 1024 * 1024
+# Optional: Increase max upload size to 2000 MB
+app.config['MAX_CONTENT_LENGTH'] = 2000 * 1024 * 1024
 
 def safe_path(path=""):
     full_path = os.path.abspath(os.path.join(BASE_DIR, path))
