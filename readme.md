@@ -57,9 +57,8 @@ pip install -r requirements.txt
 ### After Downloading the Executable (.exe)
 
 1. **Download** the latest executable from here:  
- [Download LFTS](https://github.com/madin-prime/LocalFileTransferSystem/releases/download/0.1/LocalFileTransferSystem.exe.zip)  
- *(Replace the URL above with your actual download link)*
-   
+ [Download LFTS](https://github.com/madin-prime/LocalFileTransferSystem/releases/download/0.1/LocalFileTransferSystem.exe.zip)
+
 2. **Place the executable file** (`LFTS.exe` or your named `.exe`) anywhere on your PC.
 
 3. **Run the executable** by double-clicking it.  
